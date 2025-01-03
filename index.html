@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+
+<header>
+    <h1>Billing System</h1>
+</header>
+
+<div class="container">
+    <form id="billingForm">
+        <div>
+            <label for="item">Item</label>
+            <input type="text" id="item" name="item" placeholder="Enter item name" required>
+        </div>
+        <div>
+            <label for="price">Price</label>
+            <input type="number" id="price" name="price" placeholder="Enter price" required>
+        </div>
+        <div>
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" required>
+        </div>
+        <input type="submit" value="Add">
+    </form>
+
+    <section id="tableSection">
+        <table>
+            <thead>
+                <tr>
+                    <th># <button id="reverse" class="btn" title="Reverse Order">↕</button></th>
+                    <th>Item <button id="sortByName" class="btn" title="Sort by Item">↓</button></th>
+                    <th>Rate <button id="sortByRate" class="btn" title="Sort by Rate">↓</button></th>
+                    <th>Quantity <button id="sortByQuantity" class="btn" title="Sort by Quantity">↓</button></th>
+                    <th>Total <button id="sortByTotal" class="btn" title="Sort by Total">↓</button></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows dynamically populated -->
+            </tbody>
+        </table>
+    </section>
+
+    <footer class="footer">
+        <span>Number of item types: <span id="itemTypes">0</span></span>
+        <span>Total: <span id="grandTotal">0</span></span>
+    </footer>
+
+    <div class="action-btns">
+        <button id="printBtn" class="action-btn">Print</button>
+        <button id="clearBtn" class="action-btn">Clear</button>
+    </div>
+</div>
+
+<template id="rowTemplate">
+    <tr>
+        <td>
+            <span class="count"></span>
+            <button class="btn delete" title="Delete">🗑️</button>
+            <button class="btn edit" title="Edit">✏️</button>
+        </td>
+        <td class="name"></td>
+        <td class="rate"></td>
+        <td class="qty"></td>
+        <td class="total"></td>
+    </tr>
+</template>
+
+<script src="script.js"></script>
+</body>
+</html>
